@@ -7,17 +7,19 @@ int main(){
 		sf::RectangleShape player(sf::Vector2f(100.0f,100.0f));
 		player.setPosition(206.0f,206.0f);
 
+		sf::Texture playerTexture;
+		playerTexture.loadFromFile("player.png");
+		player.setTexture(&playerTexture);
+
 
 		while(window.isOpen())
 		{
 				sf::Event evnt;
 				while(window.pollEvent(evnt))
 				{
-						switch(evnt.type)
+						if(evnt.type==evnt.Closed)
 						{
-								case sf::Event::Closed:
-										window.close();
-										break;
+								window.close();
 						}
 				}
 
